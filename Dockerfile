@@ -1,9 +1,7 @@
 FROM node:10-slim
 MAINTAINER nhutvd <nhutvd@wakumo.vn>
 
-ARG BCOIN_VERSION
-ENV BCOIN_VERSION=${BCOIN_VERSION}
-ENV BCOIN_DIR=/code/bcoin
+ENV BCOIN_DIR=/app
 
 COPY . $BCOIN_DIR
 
@@ -17,4 +15,4 @@ RUN apt-get update \
 
 WORKDIR $BCOIN_DIR
 
-CMD ["node", "/code/bcoin/bin/node"]
+CMD ["bcoin"]
